@@ -1,1 +1,0 @@
-ru.otp.feature1.impl
