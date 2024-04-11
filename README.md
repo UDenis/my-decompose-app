@@ -17,6 +17,7 @@
 │   │   ├── api
 │   │   ├── impl
 │   ├── featureN
+├── app (пакет где собираем все модули)
 ├── build-src (лежат [gradle convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html))
 ```
 
