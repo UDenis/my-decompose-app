@@ -1,0 +1,92 @@
+[versions]
+compile-sdk = "34"
+min-sdk = "24"
+
+## libraries
+agp = "8.3.1"
+kotlin = "1.9.22"
+coroutines = "1.8.0"
+ktor = "2.3.9"
+compose-bom = "2024.04.00"
+compose = "1.5.11"
+compose-compiler = "1.5.8"
+compose-material3 = "1.1.2"
+androidx-activityCompose = "1.8.2"
+core-ktx = "1.12.0"
+lifecycle-runtime-ktx = "2.7.0"
+androidx-junit = "1.1.5"
+activity-compose = "1.8.2"
+decompose = "3.0.0-alpha08"
+essenty = "2.0.0-alpha07"
+orbit-mvi = "6.1.1"
+espresso-core = "3.5.1"
+junit = "4.13.2"
+
+
+## plugins
+android-application = "8.3.1"
+appcompat = "1.6.1"
+material = "1.11.0"
+compose-gradle-plugin = "1.6.1"
+
+[libraries]
+## gradle-plugin
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+compose-gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-gradle-plugin" }
+serialization-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+
+## androidx
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+
+## compose
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+
+## arkivanov libs
+decompose-core = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
+decompose-compose-extension = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose" }
+essenty-lifecycle = { group = "com.arkivanov.essenty", name = "lifecycle", version.ref = "essenty" }
+essenty-coroutines = { group = "com.arkivanov.essenty", name = "lifecycle-coroutines", version.ref = "essenty" }
+
+## coroutines
+coroutines-core = { group="org.jetbrains.kotlinx", name = "kotlinx-coroutines-core",  version.ref="coroutines" }
+coroutines-android = { group="org.jetbrains.kotlinx", name = "kotlinx-coroutines-android",  version.ref="coroutines" }
+
+## ktor
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref="ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref="ktor" }
+ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref="ktor" }
+ktor-contentNegotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref="ktor" }
+ktor-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref="ktor" }
+ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref="ktor" }
+
+mvi = { group = "org.orbit-mvi", name = "orbit-core", version.ref="orbit-mvi"}
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+kotlinX-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.6.3" }
+log = { group="io.github.aakira", name="napier", version="2.7.1" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[bundles]
+compose = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material3"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-application" }
+android-library = { id = "com.android.library", version.ref = "android-application" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose-gradle-plugin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
