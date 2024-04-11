@@ -1,4 +1,4 @@
-package ru.otp.android
+package ru.otp.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,8 +8,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.defaultComponentContext
-import ru.otp.android.compose.RootContent
-import ru.otp.android.di.AppDI
+import ru.otp.app.compose.RootContent
+import ru.otp.app.di.AppDI
 import ru.otp.core.design.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {

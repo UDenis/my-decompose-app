@@ -4,7 +4,7 @@ min-sdk = "24"
 
 ## libraries
 agp = "8.3.1"
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 coroutines = "1.8.0"
 ktor = "2.3.9"
 compose-bom = "2024.04.00"
@@ -21,6 +21,7 @@ essenty = "2.0.0-alpha07"
 orbit-mvi = "6.1.1"
 espresso-core = "3.5.1"
 junit = "4.13.2"
+androidx-compose-compiler = "1.5.3"
 
 
 ## plugins
@@ -28,6 +29,7 @@ android-application = "8.3.1"
 appcompat = "1.6.1"
 material = "1.11.0"
 compose-gradle-plugin = "1.6.1"
+cocoapods = "2.0.0-Beta5"
 
 [libraries]
 ## gradle-plugin
@@ -56,6 +58,7 @@ compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 ## arkivanov libs
 decompose-core = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
 decompose-compose-extension = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose" }
+decompose-android = { group = "com.arkivanov.decompose", name = "decompose-android", version.ref = "decompose" }
 essenty-lifecycle = { group = "com.arkivanov.essenty", name = "lifecycle", version.ref = "essenty" }
 essenty-coroutines = { group = "com.arkivanov.essenty", name = "lifecycle-coroutines", version.ref = "essenty" }
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.my.app.android"
+    namespace = "ru.otp.android"
 
     compileSdk = libs.versions.compile.sdk.get().toInt()
     defaultConfig {
-        applicationId = "ru.my.app.android"
+        applicationId = "ru.otp.android"
         versionCode = 1
         versionName = "1.0"
         minSdk = libs.versions.min.sdk.get().toInt()
@@ -16,8 +16,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+//        sourceCompatibility = JavaVersion.VERSION_17
+//        targetCompatibility = JavaVersion.VERSION_17
     }
 
     packaging {
@@ -32,7 +32,7 @@ android {
     }
 
     kotlinOptions {
-        //jvmTarget = "1.8"
+        jvmTarget = "1.8"
     }
 }
 

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace="ru.otp.android"
+    namespace = "ru.otp.app"
 }
 
 dependencies {
@@ -13,6 +13,8 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.decompose.android)
+
 
     implementation(projects.core.di)
     implementation(projects.core.decompose)

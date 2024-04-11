@@ -1,8 +1,8 @@
-package ru.otp.android.compose;
+package ru.otp.app.compose;
 
 import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.DefaultComponentContext
-import ru.otp.android.di.AppDI
+import ru.otp.app.di.AppDI
 
 @Composable
 fun RootContent(

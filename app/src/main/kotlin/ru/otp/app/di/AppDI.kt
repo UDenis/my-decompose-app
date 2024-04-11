@@ -1,10 +1,10 @@
-package ru.otp.android.di
+package ru.otp.app.di
 
 import com.arkivanov.essenty.lifecycle.Lifecycle
+import ru.otp.core.di.DIComponentHolder
 import ru.otp.core.di.DIComponentProvider
 import ru.otp.feature1.impl.di.Feature1DI
 import ru.otp.feature2.impl.di.Feature2DI
-import ru.otp.core.di.DIComponentHolder
 
 class AppDI() {
 

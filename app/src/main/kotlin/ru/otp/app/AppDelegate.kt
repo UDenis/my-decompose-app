@@ -1,4 +1,4 @@
-package ru.otp.android
+package ru.otp.app
 
 import android.app.Application
 

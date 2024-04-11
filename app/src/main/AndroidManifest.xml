@@ -4,7 +4,7 @@
     <application>
 
         <activity
-            android:name="ru.otp.android.MainActivity"
+            android:name="ru.otp.app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

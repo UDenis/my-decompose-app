@@ -1,6 +1,7 @@
 package ru.otp.android
 
 import android.app.Application
+import ru.otp.app.AppDelegate
 
 class App : Application() {
 
