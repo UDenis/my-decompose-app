@@ -3,6 +3,7 @@
 Наше приложение c прицелом на мультиплатформу. Тащим только мультиплатформенные либы и желательно в которых нет кодгена.
 
 ## Стуктура
+```
 ├── target (пакет для разных сборок приложений)
 │   ├── google  (приложение для гугл стора)
 │   ├── huawei  (пока нет, но может будет и для huawei)
@@ -17,6 +18,7 @@
 │   │   ├── impl
 │   ├── featureN
 ├── build-src (лежат [gradle convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html))
+```
 
 ### Gradle convention plugins:
 В папке build-src лежать следующие gradle convention plugins:
@@ -28,9 +30,10 @@
 - multiplatform-compose-setup.gradle.kts - Не используется, добавлен на будущее
 - multiplatform-setup.gradle.kts - Не используется, добавлен на будущее
 
+
 ### Вдохновлялся:
- https://github.com/flipperdevices/Flipper-Android-App
- https://github.com/IlyaGulya/TodoAppDecomposeMviKotlin
+ - https://github.com/flipperdevices/Flipper-Android-App
+ - https://github.com/IlyaGulya/TodoAppDecomposeMviKotlin
 
 
 ## Архитектура
