@@ -1,6 +1,5 @@
 plugins {
-    id("android-lib-setup")
-    id("android-compose-setup")
+    id("multiplatform-compose-setup")
 }
 
 android {
@@ -8,5 +7,4 @@ android {
 }
 
 dependencies {
-    api(libs.decompose.core)
 }

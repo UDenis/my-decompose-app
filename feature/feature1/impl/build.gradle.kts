@@ -1,8 +1,5 @@
 plugins {
-    id("android-lib-setup")
-    id("android-compose-setup")
     id("module-impl-setup")
-    id("kotlinx-serialization")
 }
 
 android {

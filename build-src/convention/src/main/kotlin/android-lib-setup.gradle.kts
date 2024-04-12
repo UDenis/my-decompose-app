@@ -1,7 +1,5 @@
 plugins {
     id("com.android.library")
-    id("kotlinx-serialization")
-    kotlin("android")
 }
 
 android {
@@ -11,11 +9,10 @@ android {
         minSdk = libs.versions.min.sdk.get().toInt()
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_17
+//        targetCompatibility = JavaVersion.VERSION_17
+//    }
 
 //    sourceSets {
 //        named("main") {

@@ -1,12 +1,17 @@
 plugins {
-    id("android-lib-setup")
+    id("multiplatform-setup")
 }
-
 
 android {
     namespace = "ru.otp.core.di"
 }
 
-dependencies {
-    implementation(libs.essenty.lifecycle)
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(libs.essenty.lifecycle)
+            }
+        }
+    }
 }
