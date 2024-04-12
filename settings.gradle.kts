@@ -21,7 +21,11 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "OTP-app"
-include(":app")
+
+include(":compose")
+include(":compose:android")
+//include(":compose:ios")
+
 include(":target")
 include(":target:google")
 
@@ -31,9 +35,7 @@ include(":core:decompose")
 include(":core:design")
 include(":core:coroutines")
 
-
 include(":feature")
-
 include(":feature:feature1")
 include(":feature:feature1:api")
 include(":feature:feature1:impl")
