@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    id("android-lib-setup")
     id("org.jetbrains.compose")
 }
 

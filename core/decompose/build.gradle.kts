@@ -1,8 +1,6 @@
 plugins {
-    id("android-lib-setup")
-    id("android-compose-setup")
+    id("multiplatform-compose-setup")
 }
-
 
 android {
     namespace = "ru.otp.core.decompose"

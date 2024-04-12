@@ -1,5 +1,4 @@
 plugins {
-    id("android-lib-setup")
     id("module-api-setup")
 }
 

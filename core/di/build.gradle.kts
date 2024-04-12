@@ -1,6 +1,5 @@
 plugins {
     id("multiplatform-setup")
-    id("android-lib-setup")
 }
 
 android {

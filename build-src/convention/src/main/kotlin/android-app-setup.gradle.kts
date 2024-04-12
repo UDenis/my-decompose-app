@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+
 }
 
 android {
@@ -15,14 +16,15 @@ android {
         targetSdk = libs.versions.compile.sdk.get().toInt()
     }
 
-    compileOptions {
+//    compileOptions {
 //        sourceCompatibility = JavaVersion.VERSION_17
 //        targetCompatibility = JavaVersion.VERSION_17
-    }
+//    }
 
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            //excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/*"
         }
     }
     buildTypes {
@@ -33,6 +35,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        //jvmTarget = "17"
     }
 }
 
