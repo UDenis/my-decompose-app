@@ -6,6 +6,7 @@
 ```
 ├── target (пакет для разных сборок приложений)
 │   ├── google  (приложение для гугл стора)
+│   ├── ios  (приложение для iPhone)
 │   ├── huawei  (пока нет, но может будет и для huawei)
 ├── core (пакет для модулей с core функционалом)
 │   ├── di
@@ -17,8 +18,10 @@
 │   │   ├── api
 │   │   ├── impl
 │   ├── featureN
-├── app (пакет где собираем все модули)
-├── build-src (лежат [gradle convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html))
+├── compose (пакет где собираем все модули)
+│   ├── android - точка входа в для андройд приложений
+│   ├── ios - точка входа в для ios приложений
+├── build-src (лежат  gradle convention plugins)
 ```
 
 ### Gradle convention plugins:
@@ -28,8 +31,8 @@
 - android-compose-setup.gradle.kts - для настройки библиотечных модулей где есть compose.
 - module-api-setup.gradle.kts - для настройки feature:api модулей
 - module-impl-setup.gradle.kts - для настройки feature:impl модулей
-- multiplatform-compose-setup.gradle.kts - Не используется, добавлен на будущее
-- multiplatform-setup.gradle.kts - Не используется, добавлен на будущее
+- multiplatform-compose-setup.gradle.kts - для настроек мультиплатформенных модулей с compose
+- multiplatform-setup.gradle.kts - для настроек мультиплатформенных модулей
 
 
 ### Вдохновлялся:
