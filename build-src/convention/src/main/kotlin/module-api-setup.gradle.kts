@@ -2,12 +2,15 @@ plugins {
     id("multiplatform-setup")
 }
 
-android {
-    dependencies {
-        api(libs.coroutines.core)
-        api(libs.decompose.core)
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(libs.coroutines.core)
+                api(libs.decompose.core)
 
-        implementation(project(":core:decompose"))
-
+                implementation(project(":core:decompose"))
+            }
+        }
     }
 }

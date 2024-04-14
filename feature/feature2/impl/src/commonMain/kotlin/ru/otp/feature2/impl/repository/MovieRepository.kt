@@ -1,6 +1,7 @@
 package ru.otp.feature2.impl.repository
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import ru.otp.feature2.impl.model.MovieList
 import ru.otp.feature2.impl.repository.dto.MovieDto

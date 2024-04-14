@@ -8,6 +8,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -18,13 +19,14 @@ dependencyResolutionManagement {
             url = "https://maven.pkg.jetbrains.space/public/p/compose/dev",
         )
     }
+
 }
 
 rootProject.name = "OTP-app"
 
 include(":compose")
 include(":compose:android")
-//include(":compose:ios")
+include(":compose:ios")
 
 include(":target")
 include(":target:google")

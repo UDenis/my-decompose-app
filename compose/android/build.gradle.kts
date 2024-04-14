@@ -9,15 +9,8 @@ android {
 
 kotlin {
     sourceSets {
-        androidMain {
+        commonMain {
             dependencies {
-                implementation(libs.androidx.ktx)
-                implementation(libs.androidx.activity.compose)
-                implementation(libs.appcompat)
-                implementation(libs.material)
-                implementation(libs.decompose.android)
-
-
                 implementation(projects.core.di)
                 implementation(projects.core.decompose)
                 implementation(projects.core.design)
@@ -27,6 +20,16 @@ kotlin {
 
                 implementation(projects.feature.feature2.api)
                 implementation(projects.feature.feature2.impl)
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation(libs.decompose.android)
+                implementation(libs.androidx.ktx)
+                implementation(libs.androidx.activity.compose)
+                implementation(libs.appcompat)
+                implementation(libs.material)
             }
         }
     }

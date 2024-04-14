@@ -18,6 +18,19 @@ kotlin {
             it.binaries {
                 framework {
                     baseName = "Shared"
+                    export(libs.decompose.core)
+                    export(libs.essenty.lifecycle)
+                    export(projects.compose.android)
+
+                    export(projects.core.di)
+                    export(projects.core.decompose)
+                    export(projects.core.design)
+
+                    export(projects.feature.feature1.api)
+                    export(projects.feature.feature1.impl)
+
+                    export(projects.feature.feature2.api)
+                    export(projects.feature.feature2.impl)
                 }
             }
         }
@@ -25,15 +38,20 @@ kotlin {
     sourceSets {
         iosMain {
             dependencies {
-                implementation(projects.core.di)
-                implementation(projects.core.decompose)
-                implementation(projects.core.design)
+                api(libs.essenty.lifecycle)
+                api(libs.decompose.core)
 
-                implementation(projects.feature.feature1.api)
-                implementation(projects.feature.feature1.impl)
+                api(projects.compose.android)
 
-                implementation(projects.feature.feature2.api)
-                implementation(projects.feature.feature2.impl)
+                api(projects.core.di)
+                api(projects.core.decompose)
+                api(projects.core.design)
+
+                api(projects.feature.feature1.api)
+                api(projects.feature.feature1.impl)
+
+                api(projects.feature.feature2.api)
+                api(projects.feature.feature2.impl)
             }
         }
     }
