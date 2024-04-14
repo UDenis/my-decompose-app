@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.app)
+    implementation(projects.compose.android)
 }

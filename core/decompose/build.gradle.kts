@@ -6,6 +6,13 @@ android {
     namespace = "ru.otp.core.decompose"
 }
 
-dependencies {
-    api(libs.decompose.core)
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(libs.decompose.core)
+            }
+        }
+    }
 }
+

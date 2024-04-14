@@ -6,10 +6,15 @@ import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.arkivanov.essenty.lifecycle.create
 import com.arkivanov.essenty.lifecycle.destroy
 import com.arkivanov.essenty.lifecycle.doOnDestroy
+import kotlinx.atomicfu.locks.reentrantLock
+import kotlinx.atomicfu.locks.withLock
+import kotlin.concurrent.Volatile
 
 class DIComponentHolder<T : Any>(
     private val factory: (Lifecycle) -> T,
 ) : DIComponentProvider<T>, LifecycleOwner {
+
+    val lock = reentrantLock()
 
     private val lifecycleRegistry = LifecycleRegistry()
 
@@ -24,8 +29,8 @@ class DIComponentHolder<T : Any>(
     /**
      * @param ownerLifecycle - Lifecycle потребителя компонента
      */
-    @Synchronized
-    override fun get(ownerLifecycle: Lifecycle): T {
+    override fun get(ownerLifecycle: Lifecycle): T = lock.withLock {
+
         counter++
 
         ownerLifecycle.doOnDestroy {
@@ -39,8 +44,7 @@ class DIComponentHolder<T : Any>(
         return component!!
     }
 
-    @Synchronized
-    private fun onEnd() {
+    private fun onEnd() =  lock.withLock {
         counter--
         if (counter <= 0) {
             lifecycleRegistry.destroy()
