@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.otp.core.decompose.DecomposeComponent
+import ru.otp.core.decompose.getOrCreateContainerHost
 import ru.otp.feature1.impl.screen.compose.HomeContent
 import ru.otp.feature1.impl.screen.store.HomeContainerHost
 import ru.otp.feature1.impl.screen.store.HomeState
@@ -34,15 +35,18 @@ internal class HomeComponentImpl(
 
     private val scope = coroutineScope(mainContext + SupervisorJob())
 
-    private val container = HomeContainerHost(
-        coroutineScope = scope,
-    )
+    private val container = getOrCreateContainerHost {
+        HomeContainerHost(
+            coroutineScope = scope,
+        )
+    }
 
     private val stack = childStack(
         source = navigation,
         serializer = RouteConfiguration.serializer(),
         initialStack = { listOf(RouteConfiguration.None) },
         childFactory = ::child,
+        handleBackButton = true,
     )
 
     override val childStack: Value<ChildStack<RouteConfiguration, DecomposeComponent>> = stack

@@ -22,8 +22,8 @@ class Feature2DI(
             return MoviesListComponentImpl(
                 componentContext = MoviesListComponentContext(
                     componentContext = componentContext,
-                    feature2DI = this@Feature2DI,
                 ),
+                feature2DI = this@Feature2DI,
             )
         }
     }
