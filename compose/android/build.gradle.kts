@@ -16,10 +16,12 @@ kotlin {
                 implementation(projects.core.design)
 
                 implementation(projects.feature.feature1.api)
-                implementation(projects.feature.feature1.impl)
+                runtimeOnly(projects.feature.feature1.impl)
 
-                implementation(projects.feature.feature2.api)
-                implementation(projects.feature.feature2.impl)
+                runtimeOnly(projects.feature.feature2.api)
+                runtimeOnly(projects.feature.feature2.impl)
+
+                implementation("org.jetbrains.kotlin:kotlin-reflect:${libs.versions.kotlin.get()}")
             }
         }
 

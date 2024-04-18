@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <meta-data
+            android:value="dicomponent"
+            android:name="ru.otp.feature1.impl.di.Feature1DIImpl" />
+
+    </application>
+
+</manifest>
