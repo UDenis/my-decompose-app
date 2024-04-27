@@ -20,6 +20,8 @@ kotlin {
 
                 implementation(projects.feature.feature2.api)
                 implementation(projects.feature.feature2.impl)
+
+                implementation("org.jetbrains.kotlin:kotlin-reflect:${libs.versions.kotlin.get()}")
             }
         }
 

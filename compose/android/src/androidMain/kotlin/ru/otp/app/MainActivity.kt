@@ -8,7 +8,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.defaultComponentContext
-import ru.otp.app.compose.RootContent
 import ru.otp.core.design.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,16 +16,16 @@ class MainActivity : ComponentActivity() {
 
         val root = defaultComponentContext()
         val appDI = (applicationContext as AppDelegateOwner).appDelegate.appDI
+
         setContent {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
                 ) {
-                    RootContent(
-                        rootComponentContext = root,
-                        appDI = appDI,
-                    )
+                    appDI
+                        .homeComponentFactory(root)
+                        .Render()
                 }
             }
         }

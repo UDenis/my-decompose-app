@@ -1,30 +1,22 @@
 package ru.otp.core.di
 
 import com.arkivanov.essenty.lifecycle.Lifecycle
-import com.arkivanov.essenty.lifecycle.LifecycleOwner
-import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.arkivanov.essenty.lifecycle.create
-import com.arkivanov.essenty.lifecycle.destroy
 import com.arkivanov.essenty.lifecycle.doOnDestroy
 import kotlinx.atomicfu.locks.reentrantLock
 import kotlinx.atomicfu.locks.withLock
 import kotlin.concurrent.Volatile
 
-class DIComponentHolder<T : Any>(
-    private val factory: (Lifecycle) -> T,
-) : DIComponentProvider<T>, LifecycleOwner {
+class DIComponentHolder<T : DIComponent>(
+    private val factory: () -> T,
+) : DIComponentProvider<T> {
 
-    val lock = reentrantLock()
-
-    private val lifecycleRegistry = LifecycleRegistry()
+    private val lock = reentrantLock()
 
     @Volatile
     private var component: T? = null
 
     @Volatile
     private var counter = 0
-
-    override val lifecycle: Lifecycle = lifecycleRegistry
 
     /**
      * @param ownerLifecycle - Lifecycle потребителя компонента
@@ -44,17 +36,18 @@ class DIComponentHolder<T : Any>(
         return component!!
     }
 
-    private fun onEnd() =  lock.withLock {
+    private fun onEnd() = lock.withLock {
         counter--
         if (counter <= 0) {
-            lifecycleRegistry.destroy()
+            component?.onDestroy()
             component = null
             counter = 0
         }
     }
 
     private fun create(): T {
-        lifecycleRegistry.create()
-        return factory(lifecycle)
+        return factory().apply {
+            onCreate()
+        }
     }
 }

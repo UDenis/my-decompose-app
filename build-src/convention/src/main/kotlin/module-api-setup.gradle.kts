@@ -9,6 +9,7 @@ kotlin {
                 api(libs.coroutines.core)
                 api(libs.decompose.core)
 
+                implementation(project(":core:di"))
                 implementation(project(":core:decompose"))
             }
         }
