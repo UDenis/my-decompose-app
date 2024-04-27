@@ -3,7 +3,6 @@ package ru.otp.feature2.impl.di
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleOwner
 import ru.otp.core.decompose.DecomposeComponent
-import ru.otp.core.di.ComponentDeps
 import ru.otp.core.di.DIComponentProvider
 import ru.otp.core.di.SingleInstance
 import ru.otp.feature1.api.di.Feature1DI
@@ -13,9 +12,9 @@ import ru.otp.feature2.impl.repository.MovieRepository
 import ru.otp.feature2.impl.screen.MoviesListComponentContext
 import ru.otp.feature2.impl.screen.MoviesListComponentImpl
 
-@ComponentDeps(
-    deps = [Feature1DI::class]
-)
+//@ComponentDeps(
+//    deps = [Feature1DI::class]
+//)
 class Feature2DIImpl(
     internal val feature1DI: DIComponentProvider<Feature1DI>,
 ) : Feature2DI() {
