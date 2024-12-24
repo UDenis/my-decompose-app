@@ -29,7 +29,6 @@ class Feature1DIImpl(
                 moviesListComponent = feature2DI.get(componentContext).moviesListComponentFactory,
             )
         }
-
     }
 
     override fun feature1Repository() = feature1Repository.get()

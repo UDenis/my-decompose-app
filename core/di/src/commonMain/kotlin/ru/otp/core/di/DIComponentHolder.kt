@@ -38,7 +38,7 @@ class DIComponentHolder<T : DIComponent>(
 
     private fun onEnd() = lock.withLock {
         counter--
-        if (counter <= 0) {
+        if (counter <= 0 && component != null) {
             component?.onDestroy()
             component = null
             counter = 0

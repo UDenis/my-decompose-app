@@ -19,7 +19,6 @@ dependencyResolutionManagement {
             url = "https://maven.pkg.jetbrains.space/public/p/compose/dev",
         )
     }
-
 }
 
 rootProject.name = "OTP-app"

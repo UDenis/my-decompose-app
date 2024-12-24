@@ -1,7 +1,9 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     kotlin("android")
-
 }
 
 android {
@@ -16,10 +18,10 @@ android {
         targetSdk = libs.versions.compile.sdk.get().toInt()
     }
 
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_17
-//        targetCompatibility = JavaVersion.VERSION_17
-//    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 
     packaging {
         resources {
@@ -32,10 +34,12 @@ android {
             isMinifyEnabled = false
         }
     }
+}
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-        //jvmTarget = "17"
+
+tasks.withType<KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_1_8)
     }
 }
 
