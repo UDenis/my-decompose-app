@@ -1,18 +1,18 @@
 [versions]
-compile-sdk = "34"
+compile-sdk = "35"
 min-sdk = "24"
 
 ## libraries
-kotlin = "1.9.23"
-coroutines = "1.8.0"
+kotlin = "2.0.20"
+coroutines = "1.9.0"
 ktor = "2.3.9"
-core-ktx = "1.12.0"
-lifecycle-runtime-ktx = "2.7.0"
-androidx-junit = "1.1.5"
-activity-compose = "1.8.2"
-decompose = "3.0.0-alpha08"
-essenty = "2.0.0-alpha07"
-orbit-mvi = "6.1.1"
+core-ktx = "1.15.0"
+lifecycle-runtime-ktx = "2.8.7"
+androidx-junit = "1.2.1"
+activity-compose = "1.10.0"
+decompose = "3.2.2"
+essenty = "2.4.0"
+orbit-mvi = "9.0.0"
 espresso-core = "3.5.1"
 junit = "4.13.2"
 atomicfu = "0.23.2"
@@ -20,10 +20,10 @@ koin = "3.5.6"
 
 
 ## plugins
-android-gradle = "8.3.1"
-appcompat = "1.6.1"
-material = "1.11.0"
-compose-gradle-plugin = "1.6.1"
+android-gradle = "8.5.2"
+appcompat = "1.7.0"
+material = "1.12.0"
+compose-gradle-plugin = "1.7.3"
 cocoapods = "2.0.0-Beta5"
 
 [libraries]
@@ -31,6 +31,7 @@ cocoapods = "2.0.0-Beta5"
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 compose-multiplatform-gradle = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-gradle-plugin" }
+compose-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 serialization-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 kotlinX-atomicfu-gradle-plugin = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
 
@@ -82,4 +83,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-gradle-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

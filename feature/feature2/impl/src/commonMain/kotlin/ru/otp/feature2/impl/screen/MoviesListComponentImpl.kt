@@ -19,7 +19,6 @@ internal class MoviesListComponentImpl(
         MovieListContainerHost(
             scope = scope,
             movieRepository = feature2DI.movieRepository(),
-            //feature1Repository = feature2DI.feature1Repository.get(this),
             feature1Repository = feature2DI.feature1Repository(this),
         )
     }

@@ -4,9 +4,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
-import org.orbitmvi.orbit.syntax.simple.intent
-import org.orbitmvi.orbit.syntax.simple.postSideEffect
-import org.orbitmvi.orbit.syntax.simple.reduce
 
 internal class HomeContainerHost(
     coroutineScope: CoroutineScope,

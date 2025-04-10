@@ -12,13 +12,11 @@ import ru.otp.feature1.impl.screen.HomeComponentContext
 import ru.otp.feature1.impl.screen.HomeComponentImpl
 import ru.otp.feature2.api.di.Feature2DI
 
-//@ComponentDeps(
-//    deps = [Feature2DI::class]
-//)
 class Feature1DIImpl(
     private val feature2DI: DIComponentProvider<Feature2DI>,
 ) : Feature1DI() {
 
+    //А почему просто by lazy не используем?
     private val feature1Repository =
         SingleInstance<IFeature1Repository> { Feature1RepositoryImpl() }
 

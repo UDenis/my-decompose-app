@@ -5,8 +5,6 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
-import org.orbitmvi.orbit.syntax.simple.intent
-import org.orbitmvi.orbit.syntax.simple.reduce
 import ru.otp.feature1.api.repository.IFeature1Repository
 import ru.otp.feature2.impl.repository.MovieRepository
 

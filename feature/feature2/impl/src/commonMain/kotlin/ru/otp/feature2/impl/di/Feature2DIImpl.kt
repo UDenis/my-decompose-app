@@ -12,9 +12,6 @@ import ru.otp.feature2.impl.repository.MovieRepository
 import ru.otp.feature2.impl.screen.MoviesListComponentContext
 import ru.otp.feature2.impl.screen.MoviesListComponentImpl
 
-//@ComponentDeps(
-//    deps = [Feature1DI::class]
-//)
 class Feature2DIImpl(
     internal val feature1DI: DIComponentProvider<Feature1DI>,
 ) : Feature2DI() {
