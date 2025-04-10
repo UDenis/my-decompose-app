@@ -1,6 +1,7 @@
 plugins {
     id("multiplatform-compose-setup")
     id("kotlinx-serialization")
+    id("com.google.devtools.ksp")
     kotlin("plugin.serialization")
 }
 
@@ -8,6 +9,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                //implementation(libs.koin.)
+
                 implementation(libs.ktor.core)
 
                 api(libs.mvi)

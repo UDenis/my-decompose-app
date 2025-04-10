@@ -9,8 +9,8 @@ buildscript {
     dependencies {
         // kotlinx.atomicfu should be on classpath
         //  it's an implementation detail of kotlinx.atomicfu gradle plugin
-        classpath(libs.kotlin.gradle.plugin)
-        classpath(libs.kotlinX.atomicfu.gradle.plugin)
+        classpath(libs.gradle.plugin.kotlin)
+        classpath(libs.gradle.plugin.atomicfu)
     }
 }
 
@@ -23,5 +23,7 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.compose) apply false
     alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.kotlinx.atomicfu) apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block
