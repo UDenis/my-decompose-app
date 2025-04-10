@@ -3,24 +3,27 @@ compile-sdk = "35"
 min-sdk = "24"
 
 ## libraries
-kotlin = "2.0.20"
+kotlin = "2.0.21"
+#ksp = "$kotlin-$ksp" https://github.com/google/ksp/releases
+ksp = "2.0.21-1.0.28"
+
 coroutines = "1.9.0"
 ktor = "2.3.9"
-core-ktx = "1.15.0"
+core-ktx = "1.16.0"
 lifecycle-runtime-ktx = "2.8.7"
 androidx-junit = "1.2.1"
-activity-compose = "1.10.0"
+activity-compose = "1.10.1"
 decompose = "3.2.2"
 essenty = "2.4.0"
 orbit-mvi = "9.0.0"
 espresso-core = "3.5.1"
 junit = "4.13.2"
-atomicfu = "0.23.2"
-koin = "3.5.6"
+atomicfu = "0.25.0"
+koin = "4.0.3"
 
 
 ## plugins
-android-gradle = "8.5.2"
+android-gradle = "8.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 compose-gradle-plugin = "1.7.3"
@@ -28,12 +31,14 @@ cocoapods = "2.0.0-Beta5"
 
 [libraries]
 ## gradle-plugin
-android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-compose-multiplatform-gradle = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-gradle-plugin" }
-compose-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
-serialization-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
-kotlinX-atomicfu-gradle-plugin = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
+gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
+gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-compose-multiplatform = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-gradle-plugin" }
+gradle-plugin-compose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+gradle-plugin-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
+gradle-plugin-ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version.ref = "ksp" }
+
 
 ## androidx
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
@@ -52,26 +57,27 @@ essenty-lifecycle = { group = "com.arkivanov.essenty", name = "lifecycle", versi
 essenty-coroutines = { group = "com.arkivanov.essenty", name = "lifecycle-coroutines", version.ref = "essenty" }
 
 ## coroutines
-coroutines-core = { group="org.jetbrains.kotlinx", name = "kotlinx-coroutines-core",  version.ref="coroutines" }
-coroutines-android = { group="org.jetbrains.kotlinx", name = "kotlinx-coroutines-android",  version.ref="coroutines" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
 ## ktor
-ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref="ktor" }
-ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref="ktor" }
-ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref="ktor" }
-ktor-contentNegotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref="ktor" }
-ktor-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref="ktor" }
-ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref="ktor" }
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
+ktor-contentNegotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
 
 
 ## koin
-##koin-core = { group = "io.insert-koin", name="koin-core", version.ref="koin" }
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
 
-mvi = { group = "org.orbit-mvi", name = "orbit-core", version.ref="orbit-mvi"}
+mvi = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbit-mvi" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 kotlinX-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.6.3" }
-log = { group="io.github.aakira", name="napier", version="2.7.1" }
+log = { group = "io.github.aakira", name = "napier", version = "2.7.1" }
 
 junit = { module = "junit:junit", version.ref = "junit" }
 
@@ -85,3 +91,5 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 compose = { id = "org.jetbrains.compose", version.ref = "compose-gradle-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinx-atomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref="atomicfu" }

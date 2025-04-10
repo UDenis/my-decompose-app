@@ -1,6 +1,6 @@
 plugins {
     id("multiplatform-setup")
-    id("kotlinx-atomicfu")
+    alias(libs.plugins.kotlinx.atomicfu)
 }
 
 android {

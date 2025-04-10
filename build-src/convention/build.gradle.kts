@@ -12,11 +12,12 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.compose.multiplatform.gradle)
-    implementation(libs.compose.gradle)
-    implementation(libs.kotlin.gradle.plugin)
-    implementation(libs.android.gradle.plugin)
-    implementation(libs.serialization.gradle.plugin)
-    implementation(libs.kotlinX.atomicfu.gradle.plugin)
+    implementation(libs.gradle.plugin.compose.multiplatform)
+    implementation(libs.gradle.plugin.compose)
+    implementation(libs.gradle.plugin.kotlin)
+    implementation(libs.gradle.plugin.android)
+    implementation(libs.gradle.plugin.serialization)
+    implementation(libs.gradle.plugin.atomicfu)
+    implementation(libs.gradle.plugin.ksp)
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
