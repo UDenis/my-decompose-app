@@ -2,6 +2,7 @@ package ru.otp.app
 
 import com.arkivanov.decompose.ComponentContext
 import ru.otp.core.decompose.DecomposeComponent
+import ru.otp.core.di.ComponentKoinContext
 import ru.otp.core.di.DIComponentHolder
 import ru.otp.feature1.api.di.Feature1DI
 import ru.otp.feature1.impl.di.Feature1DIImpl
@@ -21,12 +22,12 @@ class AppDI() : IAppDI {
         )
     }
 
-    override fun homeComponentFactory(componentContext: ComponentContext): DecomposeComponent {
-        return feature1.get(componentContext).homeComponentFactory(componentContext)
+    override fun homeComponentFactory(componentContext: ComponentContext, componentKoinContext: ComponentKoinContext): DecomposeComponent {
+        return feature1.get(componentContext).homeComponentFactory(componentContext, componentKoinContext)
     }
 }
 
 interface IAppDI {
-    fun homeComponentFactory(componentContext: ComponentContext): DecomposeComponent
+    fun homeComponentFactory(componentContext: ComponentContext, componentKoinContext: ComponentKoinContext): DecomposeComponent
 }
 

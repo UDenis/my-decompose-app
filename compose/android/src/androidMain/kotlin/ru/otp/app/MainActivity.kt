@@ -9,13 +9,27 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.defaultComponentContext
 import ru.otp.core.design.MyApplicationTheme
+import ru.otp.feature1.impl.screen.HomeComponentContext
+import ru.otp.feature1.impl.screen.HomeComponentImpl
+import ru.otp.feature2.impl.screen.MoviesListComponentImpl
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val root = defaultComponentContext()
-        val appDI = (applicationContext as AppDelegateOwner).appDelegate.appDI
+        val appDI = (applicationContext as AppDelegateOwner).appDelegate.componentKoinContext
+        val homeComponent = HomeComponentImpl(
+            componentContext = HomeComponentContext(
+                componentKoinContext = appDI,
+                componentContext = root,
+            ),
+            moviesListComponent = {
+                MoviesListComponentImpl(
+                    componentContext = it,
+                )
+            }
+        )
 
         setContent {
             MyApplicationTheme {
@@ -23,9 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
                 ) {
-                    appDI
-                        .homeComponentFactory(root)
-                        .Render()
+                    homeComponent.Render()
                 }
             }
         }

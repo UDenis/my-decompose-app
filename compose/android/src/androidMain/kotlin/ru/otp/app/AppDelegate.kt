@@ -1,6 +1,7 @@
 package ru.otp.app
 
 import android.app.Application
+import ru.otp.core.di.ComponentKoinContext
 
 class AppDelegate(
     private val app: Application
@@ -8,8 +9,11 @@ class AppDelegate(
     lateinit var appDI: IAppDI
         private set
 
+    lateinit var componentKoinContext: ComponentKoinContext
+
     fun onCreate() {
-        appDI = AppDI()
+        appDI = AppDI<Any>()
+        componentKoinContext = ComponentKoinContext()
     }
 }
 

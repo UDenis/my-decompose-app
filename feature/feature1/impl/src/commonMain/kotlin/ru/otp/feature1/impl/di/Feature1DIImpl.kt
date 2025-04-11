@@ -1,7 +1,12 @@
 package ru.otp.feature1.impl.di
 
 import com.arkivanov.decompose.ComponentContext
+import org.koin.core.module.Module
+import org.koin.core.module.dsl.singleOf
+import org.koin.dsl.bind
+import org.koin.dsl.module
 import ru.otp.core.decompose.DecomposeComponent
+import ru.otp.core.di.ComponentKoinContext
 import ru.otp.core.di.DIComponentProvider
 import ru.otp.core.di.SingleInstance
 import ru.otp.feature1.api.HomeComponentFactory
@@ -21,9 +26,9 @@ class Feature1DIImpl(
         SingleInstance<IFeature1Repository> { Feature1RepositoryImpl() }
 
     override val homeComponentFactory = object : HomeComponentFactory {
-        override fun invoke(componentContext: ComponentContext): DecomposeComponent {
+        override fun invoke(componentContext: ComponentContext, koinCOntext: ComponentKoinContext): DecomposeComponent {
             return HomeComponentImpl(
-                componentContext = HomeComponentContext(componentContext),
+                componentContext = HomeComponentContext(koinCOntext, componentContext),
                 moviesListComponent = feature2DI.get(componentContext).moviesListComponentFactory,
             )
         }

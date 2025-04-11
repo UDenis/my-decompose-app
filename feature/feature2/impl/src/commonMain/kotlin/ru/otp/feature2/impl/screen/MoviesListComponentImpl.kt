@@ -9,7 +9,7 @@ import ru.otp.feature2.impl.di.Feature2DIImpl
 import ru.otp.feature2.impl.screen.compose.MoviesListContent
 import ru.otp.feature2.impl.screen.store.MovieListContainerHost
 
-internal class MoviesListComponentImpl(
+class MoviesListComponentImpl(
     componentContext: MoviesListComponentContext,
     private val feature2DI: Feature2DIImpl,
 ) : DecomposeComponent(), MoviesListComponent,

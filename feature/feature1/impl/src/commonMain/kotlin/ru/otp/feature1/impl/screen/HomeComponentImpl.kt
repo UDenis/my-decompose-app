@@ -23,13 +23,15 @@ import ru.otp.feature1.impl.screen.store.HomeState
 import ru.otp.feature2.api.MoviesListComponentFactory
 import kotlin.coroutines.CoroutineContext
 
-internal class HomeComponentImpl(
-    componentContext: HomeComponentContext,
+class HomeComponentImpl(
+    private val componentContext: HomeComponentContext,
     mainContext: CoroutineContext = Dispatchers.Main.immediate,
     private val moviesListComponent: MoviesListComponentFactory,
 ) : DecomposeComponent(),
     HomeComponent,
     ComponentContext by componentContext {
+
+    //private val koinScope = componentContext.componentKoinContext.getOrCreateKoinScope()
 
     private val navigation = StackNavigation<RouteConfiguration>()
 
