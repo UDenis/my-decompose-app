@@ -7,6 +7,7 @@ import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
+import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.arkivanov.essenty.lifecycle.coroutines.coroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -17,13 +18,15 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ru.otp.core.decompose.DecomposeComponent
 import ru.otp.core.decompose.getOrCreateContainerHost
+import ru.otp.core.di.ComponentKoinContext
+import ru.otp.feature1.impl.di.feature1DIModule
 import ru.otp.feature1.impl.screen.compose.HomeContent
 import ru.otp.feature1.impl.screen.store.HomeContainerHost
 import ru.otp.feature1.impl.screen.store.HomeState
 import ru.otp.feature2.api.MoviesListComponentFactory
 import kotlin.coroutines.CoroutineContext
 
-class HomeComponentImpl(
+internal class HomeComponentImpl(
     private val componentContext: HomeComponentContext,
     mainContext: CoroutineContext = Dispatchers.Main.immediate,
     private val moviesListComponent: MoviesListComponentFactory,
@@ -31,7 +34,12 @@ class HomeComponentImpl(
     HomeComponent,
     ComponentContext by componentContext {
 
-    //private val koinScope = componentContext.componentKoinContext.getOrCreateKoinScope()
+    private val koinScope = instanceKeeper
+        .getOrCreate {
+            ComponentKoinContext()
+        }.getOrCreateKoinScope(
+            listOf(feature1DIModule)
+        )
 
     private val navigation = StackNavigation<RouteConfiguration>()
 
@@ -80,7 +88,11 @@ class HomeComponentImpl(
         componentContext: ComponentContext
     ): DecomposeComponent =
         when (config) {
-            RouteConfiguration.MoviesList -> moviesListComponent(componentContext)
+            RouteConfiguration.MoviesList -> moviesListComponent(
+                componentContext,
+                deps = koinScope.get()
+            )
+
             RouteConfiguration.None -> DecomposeComponent.EMPTY
         }
 

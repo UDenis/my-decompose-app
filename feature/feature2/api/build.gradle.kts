@@ -5,3 +5,13 @@ plugins {
 android {
     namespace = "ru.otp.feature2.api"
 }
+
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(projects.feature.feature1.api)
+            }
+        }
+    }
+}

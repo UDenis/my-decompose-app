@@ -8,9 +8,7 @@ import ru.otp.feature2.impl.repository.dto.MovieDto
 import ru.otp.feature2.impl.repository.dto.MovieListDto
 import ru.otp.feature2.impl.repository.dto.asModel
 
-internal class MovieRepository(
-    //private val httpClient: HttpClient,
-) {
+internal class MovieRepository() {
     suspend fun loadMovieList(): MovieList = withContext(Dispatchers.IO) {
         //val movieListDto: MovieListDto = httpClient.get("/v1.4/movie").body()
         val movieListDto: MovieListDto = MovieListDto(
