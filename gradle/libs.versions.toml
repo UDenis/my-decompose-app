@@ -3,9 +3,9 @@ compile-sdk = "35"
 min-sdk = "24"
 
 ## libraries
-kotlin = "2.0.21"
+kotlin = "2.1.0"
 #ksp = "$kotlin-$ksp" https://github.com/google/ksp/releases
-ksp = "2.0.21-1.0.28"
+ksp = "2.1.0-1.0.28"
 
 coroutines = "1.9.0"
 ktor = "2.3.9"
