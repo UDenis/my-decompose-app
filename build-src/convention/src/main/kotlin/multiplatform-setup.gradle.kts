@@ -1,10 +1,15 @@
+import com.android.build.gradle.BaseExtension
+
 plugins {
-    id("android-lib-setup")
     kotlin("multiplatform")
+    id("com.android.library")
+}
+
+configure<BaseExtension> {
+    commonAndroid(project)
 }
 
 kotlin {
-    ///jvmToolchain(17)
     androidTarget()
     iosX64()
     iosArm64()
@@ -18,3 +23,5 @@ kotlin {
         }
     }
 }
+
+includeCommonKspConfigurationTo("kspAndroid")

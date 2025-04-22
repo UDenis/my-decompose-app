@@ -3,12 +3,6 @@ import Shared
 
 struct ContentView: View {
 
-    private var appDI: AppDI
-
-    init(appDI: AppDI){
-        self.appDI = appDI
-    }
-
     @State
     private var componentHolder =
         ComponentHolder {
@@ -18,7 +12,7 @@ struct ContentView: View {
         }
     
     var body: some View {
-        ComposeView(rootComponentContext:self.componentHolder.component.rootComponentContext, appDI:appDI)
+        ComposeView(rootComponentContext:self.componentHolder.component.rootComponentContext)
             .onAppear { LifecycleRegistryExtKt.resume(self.componentHolder.lifecycle) }
             .onDisappear { LifecycleRegistryExtKt.stop(self.componentHolder.lifecycle) }
     }

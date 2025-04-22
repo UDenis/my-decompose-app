@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import me.tatarka.inject.annotations.Assisted
+import me.tatarka.inject.annotations.Inject
 import ru.otp.core.decompose.DecomposeComponent
 import ru.otp.core.decompose.getOrCreateContainerHost
 import ru.otp.feature1.impl.screen.compose.HomeContent
@@ -23,9 +25,10 @@ import ru.otp.feature1.impl.screen.store.HomeState
 import ru.otp.feature2.api.MoviesListComponentFactory
 import kotlin.coroutines.CoroutineContext
 
+@Inject
 internal class HomeComponentImpl(
-    componentContext: HomeComponentContext,
-    mainContext: CoroutineContext = Dispatchers.Main.immediate,
+    @Assisted componentContext: HomeComponentContext,
+    @Assisted mainContext: CoroutineContext = Dispatchers.Main.immediate,
     private val moviesListComponent: MoviesListComponentFactory,
 ) : DecomposeComponent(),
     HomeComponent,

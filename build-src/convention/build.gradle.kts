@@ -21,3 +21,18 @@ dependencies {
     implementation(libs.gradle.plugin.ksp)
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
+
+gradlePlugin {
+    plugins {
+        create("multiplatform-dependencies") {
+            id = name
+            implementationClass = "MultiplatformDependenciesPlugin"
+        }
+
+        create("java-versions") {
+            id = name
+            implementationClass =
+                "JavaVersionPlugin"
+        }
+    }
+}

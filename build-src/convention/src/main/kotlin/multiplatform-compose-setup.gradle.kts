@@ -6,15 +6,20 @@ plugins {
 
 kotlin {
     sourceSets {
+        androidMain {
+            dependencies {
+                implementation(libs.androidx.ui.tooling)
+            }
+        }
         commonMain {
             dependencies {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
 
+                api(libs.decompose.core)
                 api(libs.decompose.compose.extension)
                 api(libs.essenty.coroutines)
-                api(libs.decompose.core)
             }
         }
     }

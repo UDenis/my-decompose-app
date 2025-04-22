@@ -9,7 +9,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                //implementation(libs.koin.)
+                implementation(libs.kotlin.inject.runtime)
+                implementation(libs.kotlin.inject.anvil.runtime)
+                implementation(libs.kotlin.inject.anvil.runtime.optional)
 
                 implementation(libs.ktor.core)
 
@@ -36,3 +38,18 @@ kotlin {
         }
     }
 }
+
+dependencies {
+    add("kspCommonMainMetadata", libs.kotlin.inject.ksp)
+    add("kspAndroid", libs.kotlin.inject.ksp)
+    add("kspIosArm64", libs.kotlin.inject.ksp)
+    add("kspIosX64", libs.kotlin.inject.ksp)
+    add("kspIosSimulatorArm64", libs.kotlin.inject.ksp)
+
+    add("kspCommonMainMetadata", libs.kotlin.inject.anvil.ksp)
+    add("kspAndroid", libs.kotlin.inject.anvil.ksp)
+    add("kspIosArm64", libs.kotlin.inject.anvil.ksp)
+    add("kspIosX64", libs.kotlin.inject.anvil.ksp)
+    add("kspIosSimulatorArm64", libs.kotlin.inject.anvil.ksp)
+}
+

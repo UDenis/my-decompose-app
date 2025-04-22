@@ -1,38 +1,27 @@
 package ru.otp.feature2.impl.di
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.essenty.lifecycle.LifecycleOwner
+import me.tatarka.inject.annotations.Inject
 import ru.otp.core.decompose.DecomposeComponent
-import ru.otp.core.di.DIComponentProvider
-import ru.otp.core.di.SingleInstance
-import ru.otp.feature1.api.di.Feature1DI
+import ru.otp.core.di.AppGraph
+import ru.otp.feature1.api.repository.IFeature1Repository
 import ru.otp.feature2.api.MoviesListComponentFactory
-import ru.otp.feature2.api.di.Feature2DI
 import ru.otp.feature2.impl.repository.MovieRepository
-import ru.otp.feature2.impl.screen.MoviesListComponentContext
 import ru.otp.feature2.impl.screen.MoviesListComponentImpl
+import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
 
-class Feature2DIImpl(
-    internal val feature1DI: DIComponentProvider<Feature1DI>,
-) : Feature2DI() {
 
-    private val movieRepository = SingleInstance() {
-        MovieRepository()
-    }
-
-    internal fun movieRepository() = movieRepository.get()
-
-    internal fun feature1Repository(lifecycle: LifecycleOwner) =
-        feature1DI.get(lifecycle).feature1Repository()
-
-    override val moviesListComponentFactory = object : MoviesListComponentFactory {
-        override fun invoke(componentContext: ComponentContext): DecomposeComponent {
-            return MoviesListComponentImpl(
-                componentContext = MoviesListComponentContext(
-                    componentContext = componentContext,
-                ),
-                feature2DI = this@Feature2DIImpl,
-            )
-        }
+@Inject
+@ContributesBinding(AppGraph::class, MoviesListComponentFactory::class)
+class MoviesListComponentFactoryImpl(
+    private val movieRepository: Lazy<MovieRepository>,
+    private val feature1Repository: Lazy<IFeature1Repository>,
+) : MoviesListComponentFactory {
+    override fun invoke(componentContext: ComponentContext): DecomposeComponent {
+        return MoviesListComponentImpl(
+            componentContext = componentContext,
+            movieRepository = movieRepository,
+            feature1Repository = feature1Repository,
+        )
     }
 }
